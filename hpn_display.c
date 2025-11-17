@@ -11,15 +11,6 @@ static void	repeat_char(char ch, int times)
 	}
 }
 
-static int get_2d_y(short **str)
-{
-	int	y = 0;
-
-	while (str[y])
-		y++;
-	return (y);
-}
-
 static int get_2d_x(short **str)
 {
 	int	x = 0;
@@ -55,13 +46,24 @@ void	display_grid(short **grid)
 {
 	int	len = get_2d_x(grid) * 4;
 	print_header(" GRID ", len);
-	for (int x = 0; grid[x]; x++)
+
+	for (int y = 0; grid[y]; y++)
 	{
-		for (int y = 0; grid[x][y]; y++)
-		{
-			printf("%4d", grid[x][y]);
-		}
+		for (int x = 0; grid[y][x]; x++)
+			printf("%4d", grid[y][x]);
 		printf("\n");
 	}
+
 	print_header(NULL, len);
+}
+
+void	print_noise_char(float noise)
+{
+	int	charset_len;
+	int	index;
+
+	noise += 1.0;
+	charset_len = get_len(CHARSET);
+	index = noise / 2 * (charset_len - 1);
+	printf("%c", CHARSET[index]);
 }

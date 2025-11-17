@@ -17,10 +17,12 @@ int	main(int argc, char *args[])
 
 	grid = create_grid(w, h);
 	display_grid(grid);
-
-	t_cell	*cell = find_cell(2.5, 1.5, grid);
-	printf("\n=== CELL ===\n%4d %4d \n%4d %4d", cell->ul, cell->ur, cell->bl, cell->br);
-	float angle = perlin_noise(2.5, 1.5, grid);
-	printf("\n\nANGLE = %f", angle);
-	//printf("\n\n=== COS SIMILARITY ===\n%4d %4d \n%4d %4d", cos+similarity(cell->ul, ), cell->ur, cell->bl, cell->br);
+	
+	printf("\n");
+	for (float y = 0; y <= 2; y += 0.1)
+	{
+		for (float x = 0; x <= 2; x += 0.1)
+			printf("%1f", perlin_noise(x, y, grid));
+		printf("\n");
+	}
 }

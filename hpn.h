@@ -26,8 +26,9 @@ t_cell	*find_cell(float x, float y, short **grid);
 //math functions
 short	random_angle();
 float	cos_similarity(short angle1, short angle2);
+float	lin_interpolation(float t, float x, float y);
 
 //display
 void	display_grid(short **grid);
-
+void	print_noise_char(float noise);
 #endif

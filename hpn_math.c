@@ -16,3 +16,8 @@ float	cos_similarity(short angle1, short angle2)
 	
 	return (cos(angle_between * M_PI / 180));
 }
+
+float	lin_interpolation(float t, float a, float b)
+{
+	return ((1 - t) * a + t * b);
+}
