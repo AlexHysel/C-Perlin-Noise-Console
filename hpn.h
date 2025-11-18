@@ -3,13 +3,13 @@
 #ifndef HYSEL_PERLIN_NOISE_H
 # define HYSEL_PERLIN_NOISE_H
 # ifndef CHARSET
-#  define CHARSET " `.-:^=;>+!*?J#%&@ "
+#  define CHARSET " 123456789ABCDEF "
 # endif
 
 # include <stdlib.h>
 # include <math.h>
 
-//perlin noise
+//Perlin noise
 
 typedef struct s_cell
 {
@@ -20,16 +20,19 @@ typedef struct s_cell
 }	t_cell;
 
 float	perlin_noise(float x, float y, short **grid);
-short	**create_grid(unsigned int width, unsigned int height);
-t_cell	*find_cell(int x, int y, short **grid);
 
-//math functions
+//Math functions
 short	random_angle();
-float	cos_similarity(short angle1, short angle2);
+float	dot_product(float displacement_x, float displacement_y, short angle);
 float	lerp(float t, float x, float y);
 
-//display
+//Display
 void	display_grid(short **grid);
 void	print_noise_char(float noise);
 void	display_noise(float step, short **grid);
+
+//Grid
+short	**create_grid(unsigned int width, unsigned int height);
+t_cell	*get_cell(int x, int y, short **grid);
+
 #endif

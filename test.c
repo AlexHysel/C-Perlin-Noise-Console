@@ -21,7 +21,7 @@ int	main(int argc, char *args[])
     delay.tv_nsec = 100000000;
 
 	grid = create_grid(w, h);
-	display_grid(grid);
+	//display_grid(grid);
 	
 	printf("\n");
 	while(1)
