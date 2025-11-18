@@ -1,9 +1,15 @@
 #include "hpn.h"
 #include <stdio.h>
 
-static float	angle_in_cell(float x, float y, float x1, float y1)
+
+static float	quintic_curve(float value)
 {
-	return ((float) atan2(y - y1, x - x1) / M_PI * 180);
+	return (6 * pow(value, 5) - 15 * pow(value, 4) + 10 * pow(value, 3));
+}
+
+static float	perlin_curve(float value)
+{
+	return (3 * pow(value, 2) - 2 * pow(value, 3));
 }
 
 static float	interpolate(t_cell *cell, float x, float y)
@@ -13,8 +19,8 @@ static float	interpolate(t_cell *cell, float x, float y)
 	float	bl = dot_product(x, y - 1, cell->bl);
 	float	br = dot_product(x - 1, y - 1, cell->br);
 
-	x = 6 * pow(x, 5) - 15 * pow(x, 4) + 10 * pow(x, 3);
-	y = 6 * pow(y, 5) - 15 * pow(y, 4) + 10 * pow(y, 3);
+	x = perlin_curve(x);
+	y = perlin_curve(y);
 
 	float	inter_top = lerp(x, ul, ur);
 	float	inter_bottom = lerp(x, bl, br);
