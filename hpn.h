@@ -21,14 +21,15 @@ typedef struct s_cell
 
 float	perlin_noise(float x, float y, short **grid);
 short	**create_grid(unsigned int width, unsigned int height);
-t_cell	*find_cell(float x, float y, short **grid);
+t_cell	*find_cell(int x, int y, short **grid);
 
 //math functions
 short	random_angle();
 float	cos_similarity(short angle1, short angle2);
-float	lin_interpolation(float t, float x, float y);
+float	lerp(float t, float x, float y);
 
 //display
 void	display_grid(short **grid);
 void	print_noise_char(float noise);
+void	display_noise(float step, short **grid);
 #endif

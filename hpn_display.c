@@ -11,6 +11,15 @@ static void	repeat_char(char ch, int times)
 	}
 }
 
+static int get_2d_y(short **str)
+{
+	int	y = 0;
+
+	while (str[y])
+		y++;
+	return (y);
+}
+
 static int get_2d_x(short **str)
 {
 	int	x = 0;
@@ -66,4 +75,23 @@ void	print_noise_char(float noise)
 	charset_len = get_len(CHARSET);
 	index = noise / 2 * (charset_len - 1);
 	printf("%c", CHARSET[index]);
+}
+
+void	display_noise(float step, short **grid)
+{
+	int	width;
+	int	height;
+
+	width = get_2d_x(grid);
+	height = get_2d_y(grid);
+
+	print_header(" NOISE ", (width - 1) / step);
+	
+	for (float y = 0; y < height - 1; y += step)
+	{
+		for (float x = 0; x < width - 1; x += step)
+			print_noise_char(perlin_noise(x, y, grid));
+		printf("\n");
+	}
+	print_header(NULL, (width - 1) / step);
 }

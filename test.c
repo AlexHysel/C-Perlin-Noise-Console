@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "hpn.h"
+#include <time.h>
 
 int	main(int argc, char *args[])
 {
@@ -15,14 +16,22 @@ int	main(int argc, char *args[])
 	short	w = atoi(args[2]);
 	short	h = atoi(args[3]);
 
+	struct timespec delay;
+    delay.tv_sec = 0;
+    delay.tv_nsec = 100000000;
+
 	grid = create_grid(w, h);
 	display_grid(grid);
 	
 	printf("\n");
-	for (float y = 0; y <= 2; y += 0.1)
+	while(1)
 	{
-		for (float x = 0; x <= 2; x += 0.1)
-			printf("%1f", perlin_noise(x, y, grid));
-		printf("\n");
+		display_noise(0.02, grid);
+		for (int i = 0; grid[i]; i++)
+		{
+			for (int d = 0; grid[i][d]; d++)
+				grid[i][d] = (grid[i][d] + 1) % 360;
+		}
+		nanosleep(&delay, NULL);
 	}
 }
