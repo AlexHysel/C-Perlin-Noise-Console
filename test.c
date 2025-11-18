@@ -30,8 +30,9 @@ int	main(int argc, char *args[])
 		for (int i = 0; grid[i]; i++)
 		{
 			for (int d = 0; grid[i][d]; d++)
-				grid[i][d] = (grid[i][d] + 1) % 360;
+				grid[i][d] = (grid[i][d] + 1) % 360 + 1;
 		}
+		printf("\n");
 		nanosleep(&delay, NULL);
 	}
 }

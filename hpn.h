@@ -3,7 +3,7 @@
 #ifndef HYSEL_PERLIN_NOISE_H
 # define HYSEL_PERLIN_NOISE_H
 # ifndef CHARSET
-#  define CHARSET " `.,:^=>+*!?#%@"
+#  define CHARSET " `.-:^=;>+!*?J#%&@ "
 # endif
 
 # include <stdlib.h>

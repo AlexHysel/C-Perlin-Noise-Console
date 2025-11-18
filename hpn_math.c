@@ -19,5 +19,5 @@ float	cos_similarity(short angle1, short angle2)
 
 float	lerp(float t, float a, float b)
 {
-	return ((t - 1) * a + t * b);
+	return (a + t * (b - a));
 }

@@ -87,7 +87,7 @@ void	display_noise(float step, short **grid)
 
 	print_header(" NOISE ", (width - 1) / step);
 	
-	for (float y = 0; y < height - 1; y += step)
+	for (float y = 0; y < height - 1; y += step * 2)
 	{
 		for (float x = 0; x < width - 1; x += step)
 			print_noise_char(perlin_noise(x, y, grid));
