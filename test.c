@@ -4,35 +4,34 @@
 
 int	main(int argc, char *args[])
 {
-	unsigned int	seed;
+	if (argc < 2)
+	{
+		printf("Not enough params. [seed], optional: [grid width (>= 2)] [grid height (>= 2)]");
+		return (-1);
+	}
+	unsigned int	seed = atoi(args[1]);
+	short			w = 2;
+	short			h = 2;
+	short			**grid;
+	struct timespec delay;
 
-	if (argc > 1)
-		seed = atoi(args[1]);
-	else
-		seed = 0;
+	if (args >= 3)
+		w = atoi(args[2]);
+	if (args >= 4)
+		h = atoi(args[3]);
 
 	srand(seed);
-	short	**grid;
-	short	w = atoi(args[2]);
-	short	h = atoi(args[3]);
+	grid = create_grid(w, h);
 
-	struct timespec delay;
     delay.tv_sec = 0;
     delay.tv_nsec = 100000000;
-
-	grid = create_grid(w, h);
-	//display_grid(grid);
 	
 	printf("\n");
 	while(1)
 	{
 		display_noise(0.02, grid);
-		for (int i = 0; grid[i]; i++)
-		{
-			for (int d = 0; grid[i][d]; d++)
-				grid[i][d] = (grid[i][d] + 1) % 360 + 1;
-		}
 		printf("\n");
+		increment_grid_angles(grid, 1);
 		nanosleep(&delay, NULL);
 	}
 }

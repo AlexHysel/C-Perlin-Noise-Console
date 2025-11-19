@@ -32,3 +32,10 @@ t_cell	*get_cell(int x, int y, short **grid)
 	cell->br = grid[y + 1][x + 1];
 	return (cell);
 }
+
+void	increment_grid_angles(short **grid, short value)
+{
+	for (int y = 0; grid[y]; y++)
+		for (int x = 0; grid[y][x]; x++)
+			grid[y][x] = (grid[y][x] + value) % 360 + 1;
+}
