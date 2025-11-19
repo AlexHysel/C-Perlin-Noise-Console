@@ -38,6 +38,6 @@ void	display_noise(float step, short **grid);
 //Grid
 short	**create_grid(unsigned int width, unsigned int height);
 t_cell	*get_cell(int x, int y, short **grid);
-void	increment_grid_angles(short **grid, int value);
+void	increment_grid_angles(short **grid, short value);
 
 #endif
