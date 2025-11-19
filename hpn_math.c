@@ -9,7 +9,6 @@ float	dot_product(float displacement_x, float displacement_y, short angle)
 	return (grad_x * displacement_x + grad_y * displacement_y);
 }
 
-//Linear interpolation
 float	lerp(float t, float a, float b)
 {
 	return (a + t * (b - a));

@@ -3,12 +3,11 @@
 #ifndef HYSEL_PERLIN_NOISE_H
 # define HYSEL_PERLIN_NOISE_H
 # ifndef CHARSET
-#  define CHARSET "`.:,^=;>+!*\?J7#%&@ "
+#  define CHARSET " `.,:;+!/?7J%&#@"
 # endif
-
-/* Some
- `.:,^=;>+!*\?J7#%&@
-*/
+# ifndef CHAR_RATIO
+#  define CHAR_RATIO 2.0
+# endif
 
 # include <stdlib.h>
 # include <math.h>
@@ -30,10 +29,10 @@ void	display_noise(float step, short **grid);
 //Grid
 typedef struct s_cell
 {
-	short	ur;
-	short	ul;
-	short	br;
-	short	bl;
+	short	ur; //Upper-Right
+	short	ul; //Upper-Left
+	short	br; //Bottom-Right
+	short	bl; //Bottom-Left
 }	t_cell;
 
 short	**create_grid(unsigned int width, unsigned int height);

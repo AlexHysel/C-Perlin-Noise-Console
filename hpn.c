@@ -1,11 +1,11 @@
 #include "hpn.h"
 #include <stdio.h>
 
-static float	increase_contract(float noise)
+static float	increase_contrast(float noise)
 {
 	if (noise < 0.0)
-		return (-powf(-noise, 0.75));
-	return (powf(noise, 0.75));
+		return (-powf(-noise, 0.35));
+	return (powf(noise, 0.35));
 }
 
 static float	interpolate(t_cell *cell, float x, float y)
