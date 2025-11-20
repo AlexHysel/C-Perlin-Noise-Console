@@ -1,6 +1,7 @@
 # C-Perlin-Noise-Console
 
 This repository contains a simple, customizable implementation of **Perlin Noise** in C, designed for generating procedural content such as textures, terrain, or dynamic visual effects. The implementation includes functionality to display the noise as a grayscale character map in the console, offering a real-time visualization of the generated noise field.
+<img width="3831" height="2091" alt="Screenshot from 2025-11-20 16-31-01" src="https://github.com/user-attachments/assets/29bf8f5d-2ad8-4cba-85f9-fe59f014df49" />
 
 ## 🛠️ Features
 
