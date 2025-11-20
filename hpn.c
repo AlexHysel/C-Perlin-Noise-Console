@@ -4,8 +4,8 @@
 static float	increase_contrast(float noise)
 {
 	if (noise < 0.0)
-		return (-powf(-noise, 0.35));
-	return (powf(noise, 0.35));
+		return (-powf(-noise, CONTRAST_EXPONENT));
+	return (powf(noise, CONTRAST_EXPONENT));
 }
 
 static float	interpolate(t_cell *cell, float x, float y)

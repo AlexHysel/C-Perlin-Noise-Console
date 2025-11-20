@@ -8,6 +8,9 @@
 # ifndef CHAR_RATIO
 #  define CHAR_RATIO 2.0
 # endif
+# ifndef CONTRAST_EXPONENT
+#  define CONTRAST_EXPONENT 0.35
+# endif
 
 # include <stdlib.h>
 # include <math.h>
